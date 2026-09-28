@@ -1,0 +1,6 @@
+when,total,input,output,model,record,cost,currency
+2026-09-14T09:30:00,15,10,5,model-a,,0.03,USD
+2026-09-14T09:30:00,15,10,5,model-a,,0.03,USD
+2026-09-15,20,,,model-b,row-b,,
+not-a-date,4,2,2,model-c,row-c,,
+2026-09-16,-1,,,model-d,row-d,,

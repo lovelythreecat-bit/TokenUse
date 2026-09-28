@@ -1,0 +1,49 @@
+{
+  "name": "tokenuse",
+  "version": "0.1.0",
+  "private": true,
+  "description": "个人 AI Token 用量桌面看板",
+  "author": "TokenUse",
+  "main": "dist-electron/main.cjs",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "tsc --noEmit && vite build && node scripts/build-electron.mjs",
+    "test": "vitest run",
+    "start": "electron .",
+    "package": "npm run build && electron-builder --win portable --publish never",
+    "package:dir": "npm run build && electron-builder --win --dir --publish never"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "lucide-react": "^0.468.0",
+    "luxon": "^3.6.1",
+    "papaparse": "^5.5.3",
+    "sql.js": "^1.13.0"
+  },
+  "devDependencies": {
+    "@types/luxon": "^3.6.2",
+    "@types/node": "^22.14.0",
+    "@types/papaparse": "^5.3.16",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@types/sql.js": "^1.4.9",
+    "@vitejs/plugin-react": "^4.4.1",
+    "electron": "44.3.0",
+    "electron-builder": "^26.0.12",
+    "esbuild": "^0.25.3",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5",
+    "vitest": "^3.1.3",
+    "@playwright/test": "^1.52.0"
+  },
+  "build": {
+    "appId": "local.tokenuse.desktop",
+    "productName": "TokenUse",
+    "directories": { "output": "release" },
+    "files": ["dist/**/*", "dist-electron/**/*", "package.json"],
+    "extraResources": [{ "from": "node_modules/sql.js/dist/sql-wasm.wasm", "to": "sql-wasm.wasm" }],
+    "win": { "target": ["portable"], "signAndEditExecutable": false },
+    "portable": { "artifactName": "TokenUse-${version}-Windows.${ext}" }
+  }
+}

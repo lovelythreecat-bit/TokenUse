@@ -1,0 +1,12 @@
+node_modules/
+dist/
+dist-electron/
+release/
+.superpowers/
+.test-data/
+test-results/
+playwright-report/
+*.log
+.DS_Store
+Thumbs.db
+Desktop.ini
